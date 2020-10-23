@@ -1,7 +1,5 @@
 package JOA.models.users.compacts;
 
-import JOA.models.common.Cover;
-import JOA.models.common.Page;
 import JOA.models.groups.Group;
 import JOA.models.users.statistics.UserStatistic;
 

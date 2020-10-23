@@ -1,4 +1,4 @@
-package JOA.models.common;
+package JOA.models.spotlights;
 
 import java.util.Date;
 
