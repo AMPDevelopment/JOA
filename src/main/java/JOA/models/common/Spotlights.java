@@ -1,2 +1,5 @@
-package JOA.models.common;public class Spotlights {
+package JOA.models.common;
+
+public class Spotlights {
+    private Spotlight[] spotlights;
 }

@@ -1,2 +1,8 @@
-package JOA.models.users.compacts;public class UserAchievement {
+package JOA.models.users.compacts;
+
+import java.sql.Timestamp;
+
+public class UserAchievement {
+    private Timestamp achievedAt;
+    private int achievementId;
 }

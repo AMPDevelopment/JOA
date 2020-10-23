@@ -1,4 +1,4 @@
-package JOA.models.users.compacts;
+package JOA.models.common;
 
 public class Cover {
     private String customUrl;

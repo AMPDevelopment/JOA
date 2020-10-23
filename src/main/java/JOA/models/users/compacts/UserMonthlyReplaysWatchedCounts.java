@@ -1,5 +1,5 @@
 package JOA.models.users.compacts;
 
-public class MonthlyReplaysWatchedCounts extends MonthlyCounts {
+public class UserMonthlyReplaysWatchedCounts extends MonthlyCounts {
 
 }

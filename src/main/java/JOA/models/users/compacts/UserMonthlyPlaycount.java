@@ -1,2 +1,4 @@
-package JOA.models.users.compacts;public class UserMonthlyPlaycount {
+package JOA.models.users.compacts;
+
+public class UserMonthlyPlaycount extends MonthlyCounts {
 }
