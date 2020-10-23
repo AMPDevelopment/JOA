@@ -75,8 +75,17 @@ public class JOA {
         this.key = key;
     }
 
-    public String getKey() {
+    private String getKey() {
         return this.key;
     }
 
+    public String getAsync(String interfaceName, String methodName, String parameters) {
+
+    }
+
+    private class JOAException extends Exception {
+        public JOAException(String message) throws Exception{
+
+        }
+    }
 }
