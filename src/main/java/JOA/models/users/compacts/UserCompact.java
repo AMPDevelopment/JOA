@@ -2,6 +2,7 @@ package JOA.models.users.compacts;
 
 import JOA.models.groups.Group;
 import JOA.models.users.statistics.UserStatistic;
+import org.jetbrains.annotations.Nullable;
 
 import java.sql.Timestamp;
 
@@ -14,6 +15,8 @@ public class UserCompact {
     private boolean isBot;
     private boolean isOnline;
     private boolean isSupporter;
+
+    @Nullable
     private Timestamp lastVisit;
     private boolean pmFriendsOnly;
     private String profileColor;

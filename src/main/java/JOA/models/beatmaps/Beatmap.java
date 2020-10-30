@@ -1,6 +1,7 @@
 package JOA.models.beatmaps;
 
 import JOA.models.beatmaps.compact.BeatmapCompact;
+import org.jetbrains.annotations.Nullable;
 
 import java.sql.Timestamp;
 
@@ -14,6 +15,8 @@ public class Beatmap extends BeatmapCompact {
     private int countSliders;
     private int countSpinners;
     private float cs;
+
+    @Nullable
     private Timestamp deletedAt;
     private float drain;
     private int hitLength;
