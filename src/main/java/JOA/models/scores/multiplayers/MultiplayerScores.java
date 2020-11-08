@@ -1,15 +1,23 @@
 package JOA.models.scores.multiplayers;
 
-import org.jetbrains.annotations.Nullable;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class MultiplayerScores {
+    @JsonProperty()
     private MultiplayerScoresCursor cursor;
+
+    @JsonProperty()
     private Object params;
+
+    @JsonProperty()
     private MultiplayerScore[] scores;
 
-    @Nullable
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @JsonProperty()
     private int total;
 
-    @Nullable
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @JsonProperty("user_score")
     private MultiplayerScore userScore;
 }

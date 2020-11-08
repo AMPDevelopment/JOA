@@ -1,11 +1,16 @@
 package JOA.models.users.compacts;
 
-import org.jetbrains.annotations.Nullable;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Cover {
+    @JsonProperty("custom_url")
     private String customUrl;
+
+    @JsonProperty()
     private String url;
 
-    @Nullable
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @JsonProperty()
     private String id;
 }

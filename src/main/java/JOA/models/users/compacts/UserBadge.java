@@ -1,10 +1,17 @@
 package JOA.models.users.compacts;
 
-import java.sql.Timestamp;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class UserBadge {
-    private Timestamp awardedAt;
+    @JsonProperty("awarded_at")
+    private String awardedAt; // Timestamp
+
+    @JsonProperty()
     private String description;
+
+    @JsonProperty("image_url")
     private String imageUrl;
+
+    @JsonProperty()
     private String url;
 }

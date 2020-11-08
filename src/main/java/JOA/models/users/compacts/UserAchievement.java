@@ -1,8 +1,11 @@
 package JOA.models.users.compacts;
 
-import java.sql.Timestamp;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class UserAchievement {
+    @JsonProperty("achieved_at")
     private String achievedAt; // Timestamp
+
+    @JsonProperty("achievement_id")
     private int achievementId;
 }

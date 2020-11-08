@@ -1,45 +1,73 @@
 package JOA.models.users;
 
-import JOA.models.modes.GameMode;
 import JOA.models.users.compacts.UserCompact;
-import org.jetbrains.annotations.Nullable;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class User extends UserCompact {
+    @JsonProperty("cover_url")
     private String coverUrl;
 
-    @Nullable
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @JsonProperty()
     private String discord;
+
+    @JsonProperty("has_supported")
     private boolean hasSupported;
 
-    @Nullable
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @JsonProperty()
     private String interests;
+
+    @JsonProperty()
     private Kudosu kudosu;
+
+    @JsonProperty()
     private String lastFm;
 
-    @Nullable
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @JsonProperty()
     private String location;
+
+    @JsonProperty()
     private int maxBlocks;
+
+    @JsonProperty()
     private int maxFriends;
 
-    @Nullable
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @JsonProperty()
     private String occupation;
+
+    @JsonProperty()
     private String playmode;
+
+    @JsonProperty()
     private String[] playstyle;
+
+    @JsonProperty("post_count")
     private int postCount;
+
+    @JsonProperty("profile_order")
     private String[] profileOrder;
 
-    @Nullable
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @JsonProperty()
     private String skype;
 
-    @Nullable
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @JsonProperty()
     private String title;
 
-    @Nullable
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @JsonProperty("title_url")
     private String titleUrl;
 
-    @Nullable
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @JsonProperty()
     private String twitter;
 
-    @Nullable
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @JsonProperty()
     private String website;
 }

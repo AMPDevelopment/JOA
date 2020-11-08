@@ -1,10 +1,17 @@
 package JOA.models.users.compacts;
 
-import java.sql.Timestamp;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class UserAccountHistory {
+    @JsonProperty()
     private int id;
+
+    @JsonProperty()
     private String type;
-    private Timestamp timestamp;
+
+    @JsonProperty()
+    private String timestamp; // Timestamp
+
+    @JsonProperty()
     private int length;
 }

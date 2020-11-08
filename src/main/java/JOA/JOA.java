@@ -97,7 +97,7 @@ public class JOA {
         this.joaConfiguration = joaConfiguration;
     }
 
-    public static String getAsync(String interfaceName, String methodName, String parameters) throws Exception {
+    private static String getAsync(String interfaceName, String methodName, String parameters) throws Exception {
         if (joaConfiguration == null) {
             throw new JOAException("Missing configuration"); // Todo: Use exception property file in future
         }

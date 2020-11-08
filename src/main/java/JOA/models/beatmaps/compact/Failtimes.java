@@ -1,11 +1,14 @@
 package JOA.models.beatmaps.compact;
 
-import org.jetbrains.annotations.Nullable;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Failtimes {
-    @Nullable
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @JsonProperty()
     private int[] exit;
 
-    @Nullable
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @JsonProperty()
     private int[] fail;
 }

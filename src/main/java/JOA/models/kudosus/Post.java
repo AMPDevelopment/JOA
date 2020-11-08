@@ -1,9 +1,13 @@
 package JOA.models.kudosus;
 
-import org.jetbrains.annotations.Nullable;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Post {
-    @Nullable
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @JsonProperty()
     private String url;
+
+    @JsonProperty()
     private String title;
 }
