@@ -88,17 +88,35 @@ public class JOA {
     private static JOAConfiguration joaConfiguration;
     private static String token;
 
+    /**
+     * Initializes the JOA without a configuration.
+     */
     public JOA() {
     }
 
+
+    /**
+     * Initializes the JOA with a configuration.
+     * @param joaConfiguration
+     */
     public JOA(JOAConfiguration joaConfiguration) {
         this.joaConfiguration = joaConfiguration;
     }
 
+    /**
+     * Sets the configuration.
+     * @param joaConfiguration JOA configuration object.
+     */
     public void setJoaConfiguration(JOAConfiguration joaConfiguration) {
         this.joaConfiguration = joaConfiguration;
     }
 
+    /**
+     * Gets the user by id.
+     * @param id Users id.
+     * @return Returns the user.
+     * @throws Exception
+     */
     public User getUserById(int id) throws Exception {
         String result = getAsync(USERS, Integer.toString(id));
         ObjectMapper mapper = new ObjectMapper();
