@@ -23,7 +23,7 @@ public class User extends UserCompact {
 
     @Nullable
     private String occupation;
-    private GameMode playmode;
+    private String playmode;
     private String[] playstyle;
     private int postCount;
     private String[] profileOrder;
@@ -33,6 +33,9 @@ public class User extends UserCompact {
 
     @Nullable
     private String title;
+
+    @Nullable
+    private String titleUrl;
 
     @Nullable
     private String twitter;

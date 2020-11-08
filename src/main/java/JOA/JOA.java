@@ -1,17 +1,23 @@
 package JOA;
 
 import com.ea.async.*;
+import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.util.EntityUtils;
 
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
-import java.util.concurrent.CompletableFuture;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class JOA {
     // Base
     private static final String base = "https://osu.ppy.sh/api/";
+    private static final String tokenUrl = "https://osu.ppy.sh/oauth/token/";
 
     // Version
     private static final String v1 = "v1";
@@ -75,34 +81,56 @@ public class JOA {
     private static final String maxId = "max_id=";
     private static final String spotlight = "spotlight=";
 
-    private static String key;
-    // Todo: Create a JOAConfiguration instead simply giving the key.
+    private static JOAConfiguration joaConfiguration;
+    private static String token;
 
-    public JOA(String key) {
-        this.key = key;
+    public JOA() {
         Async.init();
     }
 
-    private static String getKey() {
-        return key;
+    public JOA(JOAConfiguration joaConfiguration) {
+        this.joaConfiguration = joaConfiguration;
+        Async.init();
     }
 
-    public static CompletableFuture<String> getAsync(String interfaceName, String methodName, String parameters) throws URISyntaxException {
-        HttpClient client = HttpClient.newHttpClient();
-        URI uri = new URI(base + v2 + "/" + interfaceName + "/" + methodName + "/?" + parameters);
-        HttpRequest request = HttpRequest.newBuilder()
-                .setHeader("Bearer", getKey())
-                .uri(uri).build();
-        client.sendAsync(request, HttpResponse.BodyHandlers.ofString())
-                .thenApply(HttpResponse::headers)
-                .thenAccept(System.out::println)
-                .join();
-
-        // return string (awaitable)
-        return null;
+    public void setJoaConfiguration(JOAConfiguration joaConfiguration) {
+        this.joaConfiguration = joaConfiguration;
     }
 
-    private class JOAException extends Exception {
+    public static String getAsync(String interfaceName, String methodName, String parameters) throws Exception {
+        if (joaConfiguration == null) {
+            throw new JOAException("Missing configuration"); // Todo: Use exception property file in future
+        }
+
+        if (token == null) {
+            token = getAccessToken();
+        }
+
+        HttpClient client = new DefaultHttpClient();
+        HttpPost post = new HttpPost(base + v2 + "/" + interfaceName + "/" + methodName + "/?" + parameters);
+        post.addHeader("Authorization", "Bearer " + token);
+
+        HttpResponse response = client.execute(post);
+        return EntityUtils.toString(response.getEntity());
+    }
+
+    private static String getAccessToken() throws IOException {
+        HttpClient client = new DefaultHttpClient();
+        HttpPost post = new HttpPost(tokenUrl);
+
+        List<NameValuePair> params = new ArrayList<NameValuePair>();
+        params.add(new BasicNameValuePair("client_id", Integer.toString(joaConfiguration.getClientId())));
+        params.add(new BasicNameValuePair("client_secret", joaConfiguration.getClientSecret()));
+        params.add(new BasicNameValuePair("grant_type", "client_credentials"));
+        params.add(new BasicNameValuePair("scope", "public"));
+
+        post.setEntity(new UrlEncodedFormEntity(params));
+        HttpResponse response = client.execute(post);
+        String body = EntityUtils.toString(response.getEntity());
+        return body;
+    }
+
+    private static class JOAException extends Exception {
         public JOAException(String message) throws Exception{
 
         }

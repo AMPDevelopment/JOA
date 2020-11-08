@@ -6,7 +6,7 @@
 
     <groupId>ch.onlyonecookie</groupId>
     <artifactId>JOA</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.2</version>
 
     <properties>
         <java.version>1.8</java.version>
@@ -25,6 +25,11 @@
             <groupId>org.realityforge.org.jetbrains.annotations</groupId>
             <artifactId>org.jetbrains.annotations</artifactId>
             <version>1.6.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.0.2</version>
         </dependency>
     </dependencies>
 

@@ -1,7 +1,7 @@
 package JOA.models.users.compacts;
 
 import JOA.models.groups.Group;
-import JOA.models.users.statistics.UserStatistic;
+import JOA.models.users.statistics.UserStatistics;
 import org.jetbrains.annotations.Nullable;
 
 import java.sql.Timestamp;
@@ -17,8 +17,10 @@ public class UserCompact {
     private boolean isSupporter;
 
     @Nullable
-    private Timestamp lastVisit;
+    private String lastVisit; // Timestamp
     private boolean pmFriendsOnly;
+
+    @Nullable
     private String profileColor;
     private String username;
     private UserAccountHistory[] userAccountHistories;
@@ -52,12 +54,11 @@ public class UserCompact {
     private int scoresBestCount;
     private int scoreFirstCount;
     private int scoresRecentCount;
-    private UserStatistic statistics;
+    private UserStatistics statistics;
     private int supportLevel;
     private int unrankedBeatmapsetCount;
     private int unreadPmCount;
     private UserAchievement[] userAchievements;
-    // Todo: user_preferences is currently not documented on osu.ppy.sh/docs/index.html?bash#usercompact
     private RankHistory rankHistory;
 
     public String getAvatarUrl() {
@@ -92,7 +93,7 @@ public class UserCompact {
         return this.isSupporter;
     }
 
-    public Timestamp getLastVisit() {
+    public String getLastVisit() {
         return this.lastVisit;
     }
 

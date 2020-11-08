@@ -2,6 +2,7 @@ package JOA.models.beatmapsets.compact;
 
 import JOA.models.beatmaps.Beatmap;
 import JOA.models.users.User;
+import JOA.models.users.compacts.UserCompact;
 
 public class BeatmapsetCompact {
     private String artist;
@@ -19,17 +20,14 @@ public class BeatmapsetCompact {
     private int userId;
     private String video;
     private Beatmap[] beatmaps;
-    private Object converts;
-    private Object currentUserAttributes;
+    private Object[] converts; // Todo: Converts into the other GameModes.
     private String description;
-    private Object discussions;
-    private Object events;
-    private Object genre;
+    private Genre genre;
     private boolean hasFavourited;
-    private Object language;
+    private Language language;
     private Nominations nominations;
-    private Object ratings;
-    private Object recentFavourites;
+    private int[] ratings;
+    private UserCompact[] recentFavourites;
     private User[] relatedUsers;
     private User user;
 }
