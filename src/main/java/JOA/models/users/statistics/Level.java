@@ -8,4 +8,12 @@ public class Level {
 
     @JsonProperty()
     private int progress;
+
+    public int getCurrent() {
+        return current;
+    }
+
+    public int getProgress() {
+        return progress;
+    }
 }

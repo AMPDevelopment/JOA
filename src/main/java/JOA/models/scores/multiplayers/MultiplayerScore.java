@@ -52,4 +52,64 @@ public class MultiplayerScore {
 
     @JsonProperty()
     private User user;
+
+    public int getId() {
+        return id;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public int getRoomId() {
+        return roomId;
+    }
+
+    public int getPlaylistItemId() {
+        return playlistItemId;
+    }
+
+    public int getBeatmapId() {
+        return beatmapId;
+    }
+
+    public String getRank() {
+        return rank;
+    }
+
+    public int getTotalScore() {
+        return totalScore;
+    }
+
+    public float getAccuracy() {
+        return accuracy;
+    }
+
+    public int getMaxCombo() {
+        return maxCombo;
+    }
+
+    public String[] getMods() {
+        return mods;
+    }
+
+    public UserStatistics getStatistics() {
+        return statistics;
+    }
+
+    public boolean isPassed() {
+        return passed;
+    }
+
+    public int getPosition() {
+        return position;
+    }
+
+    public MultiplayerScoresAround getScoresAround() {
+        return scoresAround;
+    }
+
+    public User getUser() {
+        return user;
+    }
 }

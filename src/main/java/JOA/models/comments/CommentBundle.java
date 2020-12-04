@@ -43,4 +43,52 @@ public class CommentBundle {
 
     @JsonProperty()
     private UserCompact[] users;
+
+    public CommentableMeta[] getCommentableMeta() {
+        return commentableMeta;
+    }
+
+    public Comment[] getComments() {
+        return comments;
+    }
+
+    public boolean isHasMore() {
+        return hasMore;
+    }
+
+    public int getHasMoreId() {
+        return hasMoreId;
+    }
+
+    public Comment[] getIncludedComments() {
+        return includedComments;
+    }
+
+    public Comment[] getPinnedComments() {
+        return pinnedComments;
+    }
+
+    public String getSort() {
+        return sort;
+    }
+
+    public int getTopLevelCount() {
+        return topLevelCount;
+    }
+
+    public int getTotal() {
+        return total;
+    }
+
+    public boolean isUserFollow() {
+        return userFollow;
+    }
+
+    public int[] getUserVotes() {
+        return userVotes;
+    }
+
+    public UserCompact[] getUsers() {
+        return users;
+    }
 }

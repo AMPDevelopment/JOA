@@ -28,4 +28,36 @@ public class Notification {
 
     @JsonProperty()
     private Object details;
+
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getCreatedAt() {
+        return createdAt;
+    }
+
+    public String getObjectType() {
+        return objectType;
+    }
+
+    public int getObjectId() {
+        return objectId;
+    }
+
+    public int getSourceUserId() {
+        return sourceUserId;
+    }
+
+    public boolean isRead() {
+        return isRead;
+    }
+
+    public Object getDetails() {
+        return details;
+    }
 }

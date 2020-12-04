@@ -45,4 +45,60 @@ public class UserStatistics {
 
     @JsonProperty()
     private UserCompact user;
+
+    public GradeCounts getGradeCounts() {
+        return gradeCounts;
+    }
+
+    public float getHitAccuracy() {
+        return hitAccuracy;
+    }
+
+    public boolean isRanked() {
+        return isRanked;
+    }
+
+    public Level getLevel() {
+        return level;
+    }
+
+    public int getMaximumCombo() {
+        return maximumCombo;
+    }
+
+    public int getPlayCount() {
+        return playCount;
+    }
+
+    public int getPlayTime() {
+        return playTime;
+    }
+
+    public float getPp() {
+        return pp;
+    }
+
+    public int getPpRank() {
+        return ppRank;
+    }
+
+    public int getRankedScore() {
+        return rankedScore;
+    }
+
+    public int getReplaysWatchedByOthers() {
+        return replaysWatchedByOthers;
+    }
+
+    public int getTotalHits() {
+        return totalHits;
+    }
+
+    public int getTotalScore() {
+        return totalScore;
+    }
+
+    public UserCompact getUser() {
+        return user;
+    }
 }

@@ -12,6 +12,10 @@ public abstract class MonthlyCounts {
     private int count;
 
     public Date getStartDate() {
-        return this.startDate;
+        return startDate;
+    }
+
+    public int getCount() {
+        return count;
     }
 }

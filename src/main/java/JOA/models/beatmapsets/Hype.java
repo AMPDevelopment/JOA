@@ -8,4 +8,12 @@ public class Hype {
 
     @JsonProperty()
     private int required;
+
+    public int getCurrent() {
+        return current;
+    }
+
+    public int getRequired() {
+        return required;
+    }
 }

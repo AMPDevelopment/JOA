@@ -8,4 +8,12 @@ public class MultiplayerScoresAround {
 
     @JsonProperty()
     private MultiplayerScores lower;
+
+    public MultiplayerScores getHigher() {
+        return higher;
+    }
+
+    public MultiplayerScores getLower() {
+        return lower;
+    }
 }

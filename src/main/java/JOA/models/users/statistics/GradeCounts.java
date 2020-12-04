@@ -17,4 +17,24 @@ public class GradeCounts {
 
     @JsonProperty()
     private int ssh;
+
+    public int getA() {
+        return a;
+    }
+
+    public int getS() {
+        return s;
+    }
+
+    public int getSh() {
+        return sh;
+    }
+
+    public int getSs() {
+        return ss;
+    }
+
+    public int getSsh() {
+        return ssh;
+    }
 }

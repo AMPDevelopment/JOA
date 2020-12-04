@@ -11,4 +11,16 @@ public class ProfileBanner {
 
     @JsonProperty()
     private String image;
+
+    public int getId() {
+        return id;
+    }
+
+    public int getTournamentId() {
+        return tournamentId;
+    }
+
+    public String getImage() {
+        return image;
+    }
 }

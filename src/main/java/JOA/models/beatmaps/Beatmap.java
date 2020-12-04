@@ -4,6 +4,8 @@ import JOA.models.beatmaps.compact.BeatmapCompact;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.util.Date;
+
 public class Beatmap extends BeatmapCompact {
     @JsonProperty()
     private float accuracy;
@@ -34,7 +36,7 @@ public class Beatmap extends BeatmapCompact {
 
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonProperty("deleted_at")
-    private String deletedAt; // Timestamp
+    private Date deletedAt;
 
     @JsonProperty()
     private float drain;
@@ -46,7 +48,7 @@ public class Beatmap extends BeatmapCompact {
     private boolean isScorable;
 
     @JsonProperty("last_updated")
-    private String lastUpdated; // Timestamp
+    private Date lastUpdated;
 
     @JsonProperty("mode_int")
     private int modeInt;
@@ -68,4 +70,88 @@ public class Beatmap extends BeatmapCompact {
 
     @JsonProperty()
     private String url;
+
+    public float getAccuracy() {
+        return accuracy;
+    }
+
+    public float getAr() {
+        return ar;
+    }
+
+    public int getBeatmapsetId() {
+        return beatmapsetId;
+    }
+
+    public int getBpm() {
+        return bpm;
+    }
+
+    public boolean isConvert() {
+        return convert;
+    }
+
+    public int getCountCircles() {
+        return countCircles;
+    }
+
+    public int getCountSliders() {
+        return countSliders;
+    }
+
+    public int getCountSpinners() {
+        return countSpinners;
+    }
+
+    public float getCs() {
+        return cs;
+    }
+
+    public Date getDeletedAt() {
+        return deletedAt;
+    }
+
+    public float getDrain() {
+        return drain;
+    }
+
+    public int getHitLength() {
+        return hitLength;
+    }
+
+    public boolean isScorable() {
+        return isScorable;
+    }
+
+    public Date getLastUpdated() {
+        return lastUpdated;
+    }
+
+    public int getModeInt() {
+        return modeInt;
+    }
+
+    public int getPassCount() {
+        return passCount;
+    }
+
+    public int getPlayCount() {
+        return playCount;
+    }
+
+    public int getRanked() {
+        return ranked;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public int getTotalLength() {
+        return totalLength;
+    }
+
+    public String getUrl() {
+        return url;
+    }
 }

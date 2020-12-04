@@ -3,6 +3,8 @@ package JOA.models.comments;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.util.Date;
+
 public class Comment {
     @JsonProperty("commentable_id")
     private int commentableId;
@@ -11,15 +13,15 @@ public class Comment {
     private String commentableType;
 
     @JsonProperty("created_at")
-    private String createdAt;
+    private Date createdAt;
 
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonProperty("deleted_at")
-    private String deletedAt;
+    private Date deletedAt;
 
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonProperty("edited_at")
-    private String editedAt;
+    private Date editedAt;
 
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonProperty("edited_by_id")
@@ -58,4 +60,68 @@ public class Comment {
 
     @JsonProperty("votes_count")
     private int votesCount;
+
+    public int getCommentableId() {
+        return commentableId;
+    }
+
+    public String getCommentableType() {
+        return commentableType;
+    }
+
+    public Date getCreatedAt() {
+        return createdAt;
+    }
+
+    public Date getDeletedAt() {
+        return deletedAt;
+    }
+
+    public Date getEditedAt() {
+        return editedAt;
+    }
+
+    public int getEditedById() {
+        return editedById;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getLegacyName() {
+        return legacyName;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public String getMessageHtml() {
+        return messageHtml;
+    }
+
+    public int getParentId() {
+        return parentId;
+    }
+
+    public boolean isPinned() {
+        return pinned;
+    }
+
+    public int getRepliesCount() {
+        return repliesCount;
+    }
+
+    public String getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public int getVotesCount() {
+        return votesCount;
+    }
 }

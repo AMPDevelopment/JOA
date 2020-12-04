@@ -8,4 +8,12 @@ public class Page {
 
     @JsonProperty()
     private String raw;
+
+    public String getHtml() {
+        return html;
+    }
+
+    public String getRaw() {
+        return raw;
+    }
 }

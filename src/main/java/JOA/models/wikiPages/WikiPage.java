@@ -25,4 +25,32 @@ public class WikiPage {
 
     @JsonProperty()
     private String title;
+
+    public String getLayout() {
+        return layout;
+    }
+
+    public String getLocale() {
+        return locale;
+    }
+
+    public String getMarkdown() {
+        return markdown;
+    }
+
+    public String getPath() {
+        return path;
+    }
+
+    public String getSubtitle() {
+        return subtitle;
+    }
+
+    public String[] getTags() {
+        return tags;
+    }
+
+    public String getTitle() {
+        return title;
+    }
 }

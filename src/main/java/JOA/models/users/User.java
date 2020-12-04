@@ -70,4 +70,80 @@ public class User extends UserCompact {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonProperty()
     private String website;
+
+    public String getCoverUrl() {
+        return coverUrl;
+    }
+
+    public String getDiscord() {
+        return discord;
+    }
+
+    public boolean isHasSupported() {
+        return hasSupported;
+    }
+
+    public String getInterests() {
+        return interests;
+    }
+
+    public Kudosu getKudosu() {
+        return kudosu;
+    }
+
+    public String getLastFm() {
+        return lastFm;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public int getMaxBlocks() {
+        return maxBlocks;
+    }
+
+    public int getMaxFriends() {
+        return maxFriends;
+    }
+
+    public String getOccupation() {
+        return occupation;
+    }
+
+    public String getPlaymode() {
+        return playmode;
+    }
+
+    public String[] getPlaystyle() {
+        return playstyle;
+    }
+
+    public int getPostCount() {
+        return postCount;
+    }
+
+    public String[] getProfileOrder() {
+        return profileOrder;
+    }
+
+    public String getSkype() {
+        return skype;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getTitleUrl() {
+        return titleUrl;
+    }
+
+    public String getTwitter() {
+        return twitter;
+    }
+
+    public String getWebsite() {
+        return website;
+    }
 }

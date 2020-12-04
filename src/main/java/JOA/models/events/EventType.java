@@ -1,6 +1,6 @@
 package JOA.models.events;
 
-public enum Type {
+public enum EventType {
     ACHIEVEMENT,
     BEATMAP_PLAYCOUNT,
     BEATMAPSET_PLAYCOUNT,

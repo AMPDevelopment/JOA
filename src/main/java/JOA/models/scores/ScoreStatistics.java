@@ -20,4 +20,28 @@ public class ScoreStatistics {
 
     @JsonProperty("count_miss")
     private int countMiss;
+
+    public int getCount50() {
+        return count50;
+    }
+
+    public int getCount100() {
+        return count100;
+    }
+
+    public int getCount300() {
+        return count300;
+    }
+
+    public int getCountGeki() {
+        return countGeki;
+    }
+
+    public int getCountKatu() {
+        return countKatu;
+    }
+
+    public int getCountMiss() {
+        return countMiss;
+    }
 }

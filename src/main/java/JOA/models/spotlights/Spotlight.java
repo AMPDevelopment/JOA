@@ -27,4 +27,32 @@ public class Spotlight {
 
     @JsonProperty()
     private String type;
+
+    public Date getEndDate() {
+        return endDate;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public boolean isModeSpecific() {
+        return modeSpecific;
+    }
+
+    public int getParticipantCount() {
+        return participantCount;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Date getStartDate() {
+        return startDate;
+    }
+
+    public String getType() {
+        return type;
+    }
 }

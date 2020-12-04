@@ -13,4 +13,16 @@ public class Cover {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonProperty()
     private String id;
+
+    public String getCustomUrl() {
+        return customUrl;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public String getId() {
+        return id;
+    }
 }

@@ -2,6 +2,8 @@ package JOA.models.users.compacts;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.util.Date;
+
 public class UserAccountHistory {
     @JsonProperty()
     private int id;
@@ -10,8 +12,24 @@ public class UserAccountHistory {
     private String type;
 
     @JsonProperty()
-    private String timestamp; // Timestamp
+    private Date timestamp;
 
     @JsonProperty()
     private int length;
+
+    public int getId() {
+        return id;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public Date getTimestamp() {
+        return timestamp;
+    }
+
+    public int getLength() {
+        return length;
+    }
 }

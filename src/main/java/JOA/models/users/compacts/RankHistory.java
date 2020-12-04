@@ -8,4 +8,12 @@ public class RankHistory {
 
     @JsonProperty()
     private int[] data;
+
+    public String getMode() {
+        return mode;
+    }
+
+    public int[] getData() {
+        return data;
+    }
 }

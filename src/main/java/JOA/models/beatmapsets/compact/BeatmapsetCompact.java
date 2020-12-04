@@ -80,4 +80,104 @@ public class BeatmapsetCompact {
 
     @JsonProperty()
     private User user;
+
+    public String getArtist() {
+        return artist;
+    }
+
+    public String getArtistUnicode() {
+        return artistUnicode;
+    }
+
+    public Covers getCovers() {
+        return covers;
+    }
+
+    public String getCreator() {
+        return creator;
+    }
+
+    public int getFavouriteCount() {
+        return favouriteCount;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public int getPlayCount() {
+        return playCount;
+    }
+
+    public String getPreviewUrl() {
+        return previewUrl;
+    }
+
+    public String getSource() {
+        return source;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getTitleUnicode() {
+        return titleUnicode;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public String getVideo() {
+        return video;
+    }
+
+    public Beatmap[] getBeatmaps() {
+        return beatmaps;
+    }
+
+    public Object[] getConverts() {
+        return converts;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public Genre getGenre() {
+        return genre;
+    }
+
+    public boolean isHasFavourited() {
+        return hasFavourited;
+    }
+
+    public Language getLanguage() {
+        return language;
+    }
+
+    public Nominations getNominations() {
+        return nominations;
+    }
+
+    public int[] getRatings() {
+        return ratings;
+    }
+
+    public UserCompact[] getRecentFavourites() {
+        return recentFavourites;
+    }
+
+    public User[] getRelatedUsers() {
+        return relatedUsers;
+    }
+
+    public User getUser() {
+        return user;
+    }
 }

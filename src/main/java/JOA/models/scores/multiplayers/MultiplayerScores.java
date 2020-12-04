@@ -20,4 +20,24 @@ public class MultiplayerScores {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonProperty("user_score")
     private MultiplayerScore userScore;
+
+    public MultiplayerScoresCursor getCursor() {
+        return cursor;
+    }
+
+    public Object getParams() {
+        return params;
+    }
+
+    public MultiplayerScore[] getScores() {
+        return scores;
+    }
+
+    public int getTotal() {
+        return total;
+    }
+
+    public MultiplayerScore getUserScore() {
+        return userScore;
+    }
 }

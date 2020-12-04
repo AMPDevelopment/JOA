@@ -8,4 +8,12 @@ public class Rank {
 
     @JsonProperty()
     private int country;
+
+    public int getGlobal() {
+        return global;
+    }
+
+    public int getCountry() {
+        return country;
+    }
 }

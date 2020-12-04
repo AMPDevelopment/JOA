@@ -43,4 +43,48 @@ public class ChatChannel {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonProperty()
     private int[] users;
+
+    public int getChannelId() {
+        return channelId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public String getIcon() {
+        return icon;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public int getFirstMessageId() {
+        return firstMessageId;
+    }
+
+    public int getLastReadId() {
+        return lastReadId;
+    }
+
+    public int getLastMessageId() {
+        return lastMessageId;
+    }
+
+    public ChatMessage[] getRecentMessages() {
+        return recentMessages;
+    }
+
+    public boolean isModerated() {
+        return moderated;
+    }
+
+    public int[] getUsers() {
+        return users;
+    }
 }

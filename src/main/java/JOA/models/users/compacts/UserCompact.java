@@ -5,6 +5,8 @@ import JOA.models.users.statistics.UserStatistics;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.util.Date;
+
 public class UserCompact {
     @JsonProperty("avatar_url")
     private String avatarUrl;
@@ -32,7 +34,7 @@ public class UserCompact {
 
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonProperty("last_visit")
-    private String lastVisit; // Timestamp
+    private Date lastVisit;
 
     @JsonProperty("pm_friends_only")
     private boolean pmFriendsOnly;
@@ -144,54 +146,182 @@ public class UserCompact {
     private RankHistory rankHistory;
 
     public String getAvatarUrl() {
-        return this.avatarUrl;
+        return avatarUrl;
     }
 
     public String getCountryCode() {
-        return this.countryCode;
+        return countryCode;
     }
 
     public String getDefaultGroup() {
-        return this.defaultGroup;
+        return defaultGroup;
     }
 
     public int getId() {
-        return this.id;
-    }
-
-    public boolean getIsActive() {
-        return this.isActive;
-    }
-
-    public boolean getIsBot() {
-        return this.isBot;
-    }
-
-    public boolean getIsOnline() {
-        return this.isOnline;
-    }
-
-    public boolean getIsSupporter() {
-        return this.isSupporter;
-    }
-
-    public String getLastVisit() {
-        return this.lastVisit;
-    }
-
-    public boolean getPmFriendsOnly() {
-        return this.pmFriendsOnly;
-    }
-
-    public String getProfileColor() {
-        return this.profileColor;
-    }
-
-    public String getUsername() {
-        return this.username;
+        return id;
     }
 
     public boolean isActive() {
         return isActive;
+    }
+
+    public boolean isBot() {
+        return isBot;
+    }
+
+    public boolean isOnline() {
+        return isOnline;
+    }
+
+    public boolean isSupporter() {
+        return isSupporter;
+    }
+
+    public Date getLastVisit() {
+        return lastVisit;
+    }
+
+    public boolean isPmFriendsOnly() {
+        return pmFriendsOnly;
+    }
+
+    public String getProfileColor() {
+        return profileColor;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public UserAccountHistory[] getUserAccountHistories() {
+        return userAccountHistories;
+    }
+
+    public ProfileBanner getActiveTournamentBanner() {
+        return activeTournamentBanner;
+    }
+
+    public UserBadge[] getBadges() {
+        return badges;
+    }
+
+    public int getBeatmapPlaycountsCount() {
+        return beatmapPlaycountsCount;
+    }
+
+    public Country getCountry() {
+        return country;
+    }
+
+    public Cover getCover() {
+        return cover;
+    }
+
+    public int getFavouriteBeatmapsetCount() {
+        return favouriteBeatmapsetCount;
+    }
+
+    public int getFollowerCount() {
+        return followerCount;
+    }
+
+    public int getGraveyardBeatmapSetCount() {
+        return graveyardBeatmapSetCount;
+    }
+
+    public Group[] getGroups() {
+        return groups;
+    }
+
+    public boolean isAdmin() {
+        return isAdmin;
+    }
+
+    public boolean isBng() {
+        return isBng;
+    }
+
+    public boolean isFullBn() {
+        return isFullBn;
+    }
+
+    public boolean isGmt() {
+        return isGmt;
+    }
+
+    public boolean isLimitedBn() {
+        return isLimitedBn;
+    }
+
+    public boolean isModerator() {
+        return isModerator;
+    }
+
+    public boolean isNat() {
+        return isNat;
+    }
+
+    public boolean isRestricted() {
+        return isRestricted;
+    }
+
+    public boolean isSilenced() {
+        return isSilenced;
+    }
+
+    public int getLovedBeatmapsetCount() {
+        return lovedBeatmapsetCount;
+    }
+
+    public UserMonthlyPlaycount[] getMonthlyPlaycounts() {
+        return monthlyPlaycounts;
+    }
+
+    public Page getPage() {
+        return page;
+    }
+
+    public String[] getPreviousUsernames() {
+        return previousUsernames;
+    }
+
+    public int getRankedAndApprovedBeatmapsetCount() {
+        return rankedAndApprovedBeatmapsetCount;
+    }
+
+    public UserMonthlyReplaysWatchedCounts[] getReplaysWatchedCounts() {
+        return replaysWatchedCounts;
+    }
+
+    public int getScoresBestCount() {
+        return scoresBestCount;
+    }
+
+    public int getScoresFirstCount() {
+        return scoresFirstCount;
+    }
+
+    public int getScoresRecentCount() {
+        return scoresRecentCount;
+    }
+
+    public UserStatistics getStatistics() {
+        return statistics;
+    }
+
+    public int getSupportLevel() {
+        return supportLevel;
+    }
+
+    public int getUnrankedBeatmapsetCount() {
+        return unrankedBeatmapsetCount;
+    }
+
+    public UserAchievement[] getUserAchievements() {
+        return userAchievements;
+    }
+
+    public RankHistory getRankHistory() {
+        return rankHistory;
     }
 }

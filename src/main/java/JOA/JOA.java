@@ -1,6 +1,8 @@
 package JOA;
 
 import JOA.models.beatmaps.*;
+import JOA.models.comments.Comment;
+import JOA.models.comments.CommentBundle;
 import JOA.models.events.*;
 import JOA.models.kudosus.*;
 import JOA.models.modes.*;
@@ -231,6 +233,18 @@ public class JOA {
         return mapper.readValue(result, Score.class);
     }
 
+    public CommentBundle getComment(int commentId) throws Exception {
+        String result = getAsync(urlBuilder(COMMENTS, Integer.toString(commentId)));
+        ObjectMapper mapper = new ObjectMapper();
+        return mapper.readValue(result, CommentBundle.class);
+    }
+
+    public CommentBundle getComments() throws Exception {
+        String result = getAsync(urlBuilder(COMMENTS));
+        ObjectMapper mapper = new ObjectMapper();
+        return mapper.readValue(result, CommentBundle.class);
+    }
+
     private static String urlBuilder(String... objects) {
         String url = "";
 
@@ -286,7 +300,7 @@ public class JOA {
     private static String getAppAccessToken() throws IOException {
         HttpClient client = new DefaultHttpClient();
         HttpPost post = new HttpPost(TOKEN_URL);
-        post.addHeader("Content-Type", "application/json");
+        post.addHeader("Content-EventType", "application/json");
 
         List<NameValuePair> params = new ArrayList<>();
         params.add(new BasicNameValuePair("client_id", Integer.toString(joaConfiguration.getClientId())));

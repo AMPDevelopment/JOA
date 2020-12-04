@@ -5,6 +5,8 @@ import JOA.models.beatmapsets.Beatmapset;
 import JOA.models.users.User;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.util.Date;
+
 public class Score {
     @JsonProperty()
     private int id;
@@ -40,7 +42,7 @@ public class Score {
     private String rank;
 
     @JsonProperty("created_at")
-    private String createdAt; // Timestamp
+    private Date createdAt;
 
     @JsonProperty()
     private String mode;
@@ -71,4 +73,92 @@ public class Score {
 
     @JsonProperty()
     private Object match; // Todo: Implement the model 'Match'.
+
+    public int getId() {
+        return id;
+    }
+
+    public int getBestId() {
+        return bestId;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public float getAccuracy() {
+        return accuracy;
+    }
+
+    public String[] getMods() {
+        return mods;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public int getMaxCombo() {
+        return maxCombo;
+    }
+
+    public boolean isPerfect() {
+        return perfect;
+    }
+
+    public ScoreStatistics getStatistics() {
+        return statistics;
+    }
+
+    public float getPp() {
+        return pp;
+    }
+
+    public String getRank() {
+        return rank;
+    }
+
+    public Date getCreatedAt() {
+        return createdAt;
+    }
+
+    public String getMode() {
+        return mode;
+    }
+
+    public int getModeInt() {
+        return modeInt;
+    }
+
+    public boolean isReplay() {
+        return replay;
+    }
+
+    public Beatmap getBeatmap() {
+        return beatmap;
+    }
+
+    public Beatmapset getBeatmapset() {
+        return beatmapset;
+    }
+
+    public int getRankCountry() {
+        return rankCountry;
+    }
+
+    public int getRankGlobal() {
+        return rankGlobal;
+    }
+
+    public float getWeight() {
+        return weight;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public Object getMatch() {
+        return match;
+    }
 }

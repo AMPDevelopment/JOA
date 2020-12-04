@@ -26,4 +26,36 @@ public class Covers {
 
     @JsonProperty("slimcover@2x")
     private String slimcover2x;
+
+    public String getCover() {
+        return cover;
+    }
+
+    public String getCover2x() {
+        return cover2x;
+    }
+
+    public String getCard() {
+        return card;
+    }
+
+    public String getCard2x() {
+        return card2x;
+    }
+
+    public String getList() {
+        return list;
+    }
+
+    public String getList2x() {
+        return list2x;
+    }
+
+    public String getSlimcover() {
+        return slimcover;
+    }
+
+    public String getSlimcover2x() {
+        return slimcover2x;
+    }
 }

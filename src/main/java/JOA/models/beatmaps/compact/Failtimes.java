@@ -11,4 +11,12 @@ public class Failtimes {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonProperty()
     private int[] fail;
+
+    public int[] getExit() {
+        return exit;
+    }
+
+    public int[] getFail() {
+        return fail;
+    }
 }

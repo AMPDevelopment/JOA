@@ -8,4 +8,12 @@ public class Country {
 
     @JsonProperty()
     private String name;
+
+    public String getCode() {
+        return code;
+    }
+
+    public String getName() {
+        return name;
+    }
 }

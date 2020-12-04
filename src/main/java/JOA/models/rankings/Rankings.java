@@ -24,4 +24,24 @@ public class Rankings {
 
     @JsonProperty()
     private int total;
+
+    public Beatmapset[] getBeatmapsets() {
+        return beatmapsets;
+    }
+
+    public Cursor getCursor() {
+        return cursor;
+    }
+
+    public UserStatistics getRanking() {
+        return ranking;
+    }
+
+    public Spotlight getSpotlight() {
+        return spotlight;
+    }
+
+    public int getTotal() {
+        return total;
+    }
 }

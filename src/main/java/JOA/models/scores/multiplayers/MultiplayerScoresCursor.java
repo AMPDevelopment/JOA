@@ -8,4 +8,12 @@ public class MultiplayerScoresCursor {
 
     @JsonProperty("total_score")
     private int totalScore;
+
+    public int getScoreId() {
+        return scoreId;
+    }
+
+    public int getTotalScore() {
+        return totalScore;
+    }
 }

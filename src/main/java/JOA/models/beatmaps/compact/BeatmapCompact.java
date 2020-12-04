@@ -25,4 +25,32 @@ public class BeatmapCompact {
 
     @JsonProperty("max_combo")
     private int maxCombo;
+
+    public float getDifficultyRating() {
+        return difficultyRating;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getMode() {
+        return mode;
+    }
+
+    public String getVersion() {
+        return version;
+    }
+
+    public Object getBeatmapset() {
+        return beatmapset;
+    }
+
+    public Failtimes getFailtimes() {
+        return failtimes;
+    }
+
+    public int getMaxCombo() {
+        return maxCombo;
+    }
 }

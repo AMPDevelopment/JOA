@@ -10,4 +10,12 @@ public class Availability {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonProperty("more_information")
     private String moreInformation;
+
+    public boolean isDownloadDisabled() {
+        return downloadDisabled;
+    }
+
+    public String getMoreInformation() {
+        return moreInformation;
+    }
 }

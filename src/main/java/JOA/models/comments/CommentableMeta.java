@@ -14,4 +14,20 @@ public class CommentableMeta {
 
     @JsonProperty()
     private String url;
+
+    public int getId() {
+        return id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public String getUrl() {
+        return url;
+    }
 }
