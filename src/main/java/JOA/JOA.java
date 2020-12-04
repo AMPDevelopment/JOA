@@ -8,6 +8,8 @@ import JOA.models.kudosus.*;
 import JOA.models.modes.*;
 import JOA.models.rankings.*;
 import JOA.models.scores.*;
+import JOA.models.scores.multiplayers.MultiplayerScore;
+import JOA.models.scores.multiplayers.MultiplayerScores;
 import JOA.models.spotlights.*;
 import JOA.models.users.compacts.*;
 import JOA.util.JOAConverter;
@@ -215,22 +217,22 @@ public class JOA {
         return mapper.readValue(result, Rankings.class);
     }
 
-    public Score getScore(int roomId, int playlistId, int scoreId) throws Exception {
+    public MultiplayerScore getMultiplayerScore(int roomId, int playlistId, int scoreId) throws Exception {
         String result = getAsync(urlBuilder(ROOMS, Integer.toString(roomId), PLAYLIST, Integer.toString(scoreId), SCORES, Integer.toString(scoreId)));
         ObjectMapper mapper = new ObjectMapper();
-        return mapper.readValue(result, Score.class);
+        return mapper.readValue(result, MultiplayerScore.class);
     }
 
-    public List<Score> getScores(int roomId, int playlistId) throws Exception {
+    public MultiplayerScores getMultiplayerScores(int roomId, int playlistId) throws Exception {
         String result = getAsync(urlBuilder(ROOMS, Integer.toString(roomId), PLAYLIST, Integer.toString(playlistId), SCORES));
         ObjectMapper mapper = new ObjectMapper();
-        return mapper.readValue(result, new TypeReference<List<Score>>(){});
+        return mapper.readValue(result, MultiplayerScores.class);
     }
 
-    public Score getUserHighScore(int roomId, int playlistId, int userId) throws Exception {
+    public MultiplayerScore getUserMultiplayerHighScore(int roomId, int playlistId, int userId) throws Exception {
         String result = getAsync(urlBuilder(ROOMS, Integer.toString(roomId), PLAYLIST, Integer.toString(playlistId), SCORES, USERS, Integer.toString(userId)));
         ObjectMapper mapper = new ObjectMapper();
-        return mapper.readValue(result, Score.class);
+        return mapper.readValue(result, MultiplayerScore.class);
     }
 
     public CommentBundle getComment(int commentId) throws Exception {
