@@ -190,4 +190,8 @@ public class UserCompact {
     public String getUsername() {
         return this.username;
     }
+
+    public boolean isActive() {
+        return isActive;
+    }
 }

@@ -1,6 +1,15 @@
 package JOA;
 
-import JOA.models.users.User;
+import JOA.models.beatmaps.*;
+import JOA.models.events.*;
+import JOA.models.kudosus.*;
+import JOA.models.modes.*;
+import JOA.models.rankings.*;
+import JOA.models.scores.*;
+import JOA.models.spotlights.*;
+import JOA.models.users.compacts.*;
+import JOA.util.JOAConverter;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
@@ -111,24 +120,150 @@ public class JOA {
         this.joaConfiguration = joaConfiguration;
     }
 
+    public List<UserCompact> getUsers(List<Integer> userIds) throws Exception {
+        String result = getAsync(urlBuilder(USERS) + urlParameterBuilder("ids"));
+        ObjectMapper mapper = new ObjectMapper();
+        return mapper.readValue(result, new TypeReference<List<UserCompact>>(){});
+    }
+
     /**
      * Gets the user by id.
      * @param id Users id.
      * @return Returns the user.
      * @throws Exception
      */
-    public User getUserById(int id) throws Exception {
-        String result = getAsync(USERS, Integer.toString(id));
+    public User getUser(int id) throws Exception {
+        String result = getAsync(urlBuilder(USERS, Integer.toString(id)));
         ObjectMapper mapper = new ObjectMapper();
         return mapper.readValue(result, User.class);
     }
 
-    private static String getAsync(String interfaceName, String methodName, String parameters) throws Exception {
-        return getAsyncBase(BASE + V2 + "/" + interfaceName + "/" + methodName + "/" + parameters);
+    /**
+     *
+     * @param id
+     * @param gameMode
+     * @return
+     * @throws Exception
+     */
+    public User getUserWithGameMode(int id, GameMode gameMode) throws Exception {
+        String mode = JOAConverter.gameModeToString(gameMode);
+        String result = getAsync(urlBuilder(USERS, Integer.toString(id), mode));
+        ObjectMapper mapper = new ObjectMapper();
+        return mapper.readValue(result, User.class);
     }
 
-    private static String getAsync(String interfaceName, String parameters) throws Exception {
-        return getAsyncBase(BASE + V2 + "/" + interfaceName + "/" + parameters);
+    /**
+     *
+     * @param id
+     * @return
+     * @throws Exception
+     */
+    public List<Event> getUserRecentActivity(int id) throws Exception {
+        String result = getAsync(urlBuilder(USERS, Integer.toString(id), RECENT_ACTIVITY));
+        ObjectMapper mapper = new ObjectMapper();
+        return mapper.readValue(result, new TypeReference<List<Event>>(){});
+    }
+
+    /**
+     *
+     * @param id
+     * @param beatmapType
+     * @return
+     * @throws Exception
+     */
+    public List<Beatmapset> getUserBeatmaps(int id, BeatmapType beatmapType) throws Exception {
+        String beatmapTypeValue = JOAConverter.beatmapTypeToString(beatmapType);
+        String result = getAsync(urlBuilder(USERS, Integer.toString(id), BEATMAPSETS, beatmapTypeValue));
+        ObjectMapper mapper = new ObjectMapper();
+        return mapper.readValue(result, new TypeReference<List<Beatmapset>>(){});
+    }
+
+    public List<Score> getUserScores(int id, ScoreType scoreType, GameMode gameMode) throws Exception {
+        String scoreTypeValue = JOAConverter.scoreTypeToString(scoreType);
+        String result = getAsync(urlBuilder(USERS, Integer.toString(id), SCORES, scoreTypeValue));
+        ObjectMapper mapper = new ObjectMapper();
+        return mapper.readValue(result, new TypeReference<List<Score>>(){});
+    }
+
+    public List<KudosuHistory> getUserKudosu(int id) throws Exception {
+        String result = getAsync(urlBuilder(USERS, Integer.toString(id), KUDOSU));
+        ObjectMapper mapper = new ObjectMapper();
+        return mapper.readValue(result, new TypeReference<List<KudosuHistory>>(){});
+    }
+
+    public Spotlights getSpotlights() throws Exception {
+        String result = getAsync(SPOTLIGHTS);
+        ObjectMapper mapper = new ObjectMapper();
+        return mapper.readValue(result, Spotlights.class);
+    }
+
+    public Rankings getRankings(GameMode gameMode, RankingType rankingType) throws Exception {
+        String mode = JOAConverter.gameModeToString(gameMode);
+        String rankingTypeValue = JOAConverter.rankingTypeToString(rankingType);
+        String result = getAsync(urlBuilder(RANKINGS, rankingTypeValue, mode));
+        ObjectMapper mapper = new ObjectMapper();
+        return mapper.readValue(result, Rankings.class);
+    }
+
+    public Rankings getRankingsByCountry(GameMode gameMode, RankingType rankingType, String countryCode) throws Exception {
+        String mode = JOAConverter.gameModeToString(gameMode);
+        String rankingTypeValue = JOAConverter.rankingTypeToString(rankingType);
+        String result = getAsync(urlBuilder(RANKINGS, rankingTypeValue, mode) + urlParameterBuilder("country", countryCode));
+        ObjectMapper mapper = new ObjectMapper();
+        return mapper.readValue(result, Rankings.class);
+    }
+
+    public Score getScore(int roomId, int playlistId, int scoreId) throws Exception {
+        String result = getAsync(urlBuilder(ROOMS, Integer.toString(roomId), PLAYLIST, Integer.toString(scoreId), SCORES, Integer.toString(scoreId)));
+        ObjectMapper mapper = new ObjectMapper();
+        return mapper.readValue(result, Score.class);
+    }
+
+    public List<Score> getScores(int roomId, int playlistId) throws Exception {
+        String result = getAsync(urlBuilder(ROOMS, Integer.toString(roomId), PLAYLIST, Integer.toString(playlistId), SCORES));
+        ObjectMapper mapper = new ObjectMapper();
+        return mapper.readValue(result, new TypeReference<List<Score>>(){});
+    }
+
+    public Score getUserHighScore(int roomId, int playlistId, int userId) throws Exception {
+        String result = getAsync(urlBuilder(ROOMS, Integer.toString(roomId), PLAYLIST, Integer.toString(playlistId), SCORES, USERS, Integer.toString(userId)));
+        ObjectMapper mapper = new ObjectMapper();
+        return mapper.readValue(result, Score.class);
+    }
+
+    private static String urlBuilder(String... objects) {
+        String url = "";
+
+        for (String object : objects) {
+            url += "/" + object;
+        }
+
+        return url;
+    }
+
+    private static String urlParameterBuilder(String... objects) {
+        String urlParameters = "?";
+        boolean firstParam = true;
+        boolean oddParam = false;
+
+        for (String object : objects) {
+            if (oddParam) {
+                urlParameters += firstParam ? object + "=" : "&" + object + "=";
+                oddParam = true;
+            }
+            else {
+                urlParameters += object;
+                oddParam = false;
+            }
+
+            firstParam = false;
+        }
+
+        return urlParameters;
+    }
+
+    private static String getAsync(String call) throws Exception {
+        return getAsyncBase(BASE + V2 + call);
     }
 
     private static String getAsyncBase(String url) throws Exception {

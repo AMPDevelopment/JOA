@@ -10,4 +10,8 @@ public abstract class MonthlyCounts {
 
     @JsonProperty()
     private int count;
+
+    public Date getStartDate() {
+        return this.startDate;
+    }
 }
