@@ -1,9 +1,10 @@
 package JOA;
 
 import JOA.models.beatmaps.*;
+import JOA.models.beatmapsets.Beatmapset;
 import JOA.models.comments.Comment;
 import JOA.models.comments.CommentBundle;
-import JOA.models.events.*;
+import JOA.models.events.Event;
 import JOA.models.kudosus.*;
 import JOA.models.modes.*;
 import JOA.models.rankings.*;
@@ -11,6 +12,7 @@ import JOA.models.scores.*;
 import JOA.models.scores.multiplayers.MultiplayerScore;
 import JOA.models.scores.multiplayers.MultiplayerScores;
 import JOA.models.spotlights.*;
+import JOA.models.users.User;
 import JOA.models.users.compacts.*;
 import JOA.util.JOAConverter;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -21,12 +23,22 @@ import org.apache.http.NameValuePair;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.http.conn.ClientConnectionManager;
+import org.apache.http.conn.scheme.Scheme;
+import org.apache.http.conn.scheme.SchemeRegistry;
+import org.apache.http.conn.ssl.SSLSocketFactory;
+import org.apache.http.conn.ssl.X509HostnameVerifier;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 
+import javax.net.ssl.*;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.security.KeyManagementException;
+import java.security.NoSuchAlgorithmException;
+import java.security.cert.CertificateException;
+import java.security.cert.X509Certificate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -299,7 +311,7 @@ public class JOA {
         return new BufferedReader(new InputStreamReader(response.getEntity().getContent())).toString();
     }
 
-    private static String getAppAccessToken() throws IOException {
+    private static String getAppAccessToken() throws IOException, NoSuchAlgorithmException, KeyManagementException {
         HttpClient client = new DefaultHttpClient();
         HttpPost post = new HttpPost(TOKEN_URL);
         post.addHeader("Content-EventType", "application/json");

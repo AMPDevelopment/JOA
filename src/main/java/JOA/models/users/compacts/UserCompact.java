@@ -71,7 +71,7 @@ public class UserCompact {
     private int followerCount;
 
     @JsonProperty("graveyard_beatmapset_count")
-    private int graveyardBeatmapSetCount;
+    private int graveyardBeatmapsetCount;
 
     @JsonProperty()
     private Group[] groups;
@@ -225,8 +225,8 @@ public class UserCompact {
         return followerCount;
     }
 
-    public int getGraveyardBeatmapSetCount() {
-        return graveyardBeatmapSetCount;
+    public int getGraveyardBeatmapsetCount() {
+        return graveyardBeatmapsetCount;
     }
 
     public Group[] getGroups() {
